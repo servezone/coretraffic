@@ -1,0 +1,40 @@
+{
+  "name": "coretraffic",
+  "version": "1.0.0",
+  "description": "handle traffic",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "(npmts)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/pushrocks/coretraffic.git"
+  },
+  "keywords": [
+    "traffic"
+  ],
+  "author": "Lossless GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/pushrocks/coretraffic/issues"
+  },
+  "homepage": "https://gitlab.com/pushrocks/coretraffic#README",
+  "dependencies": {
+    "beautylog": "*",
+    "cflare": "0.0.2",
+    "fs-extra": "^0.30.0",
+    "gulp": "^3.9.1",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
+    "q": "^1.4.1",
+    "request": "^2.72.0",
+    "rx": "^4.1.0",
+    "shelljs": "^0.7.0",
+    "smartfile": "^3.0.10",
+    "smartstring": "2.0.6",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {
+    "npmts-g": "^5.2.6"
+  }
+}
