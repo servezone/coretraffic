@@ -1,2 +1,3 @@
-let appNode = require("../dist/index.js");
-appNode.noTicker();
+import "typings-test";
+import * as beautylog from "beautylog";
+import "should";

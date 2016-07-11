@@ -4,8 +4,7 @@ let tickerObs = plugins.rxjs.Observable
     .interval(120000);
 
 export let tickerSub;
-export let noTicker = false;
-export let startTicker = function(){
+export let start = function(){
     let done = plugins.q.defer();
     tickerSub = tickerObs.subscribe(
         function (x) {
@@ -19,15 +18,9 @@ export let startTicker = function(){
         }
     );
     console.log("subscribed ticker");
-    if (noTicker) tickerSub.dispose();
     return done.promise;
 };
 
-export let stopTicker = function(){
+export let stop = function(){
     tickerSub.dispose();
-}
-
-export let cooldown = function(){
-    let done = plugins.q.defer();
-    return done.promise;
 };
