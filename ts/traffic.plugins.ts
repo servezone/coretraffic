@@ -1,6 +1,5 @@
 import "typings-global";
 export import beautylog = require("beautylog");
-export import childProcess = require("child_process");
 export let fs = require("fs-extra");
 export let gulp = require("gulp");
 export import lodash = require("lodash");
@@ -8,7 +7,7 @@ export let moment = require("moment");
 export import path = require("path");
 export import q = require("q");
 export import request = require("request");
-export let rx = require("rx");
+export import rxjs = require("rxjs");
 export let shelljs = require("shelljs");
 export import smartfile = require("smartfile");
 export import smartstring = require("smartstring");

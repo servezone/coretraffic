@@ -1,5 +1,4 @@
 import plugins = require("./traffic.plugins");
-import TrafficEnvironment = require("./traffic.environment");
 
 export let getContainerData = function(typeArg:string){
     var done = plugins.q.defer();

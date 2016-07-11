@@ -1,8 +1,7 @@
 import plugins = require("./traffic.plugins");
-import TrafficEnvironment = require("./traffic.environment");
 
-let tickerObs = plugins.rx.Observable
-    .interval(5000).repeat();
+let tickerObs = plugins.rxjs.Observable
+    .interval(120000);
 
 export let tickerSub;
 export let noTicker = false;
@@ -11,7 +10,6 @@ export let startTicker = function(){
     tickerSub = tickerObs.subscribe(
         function (x) {
             console.log('TickerCycle#: ' + x);
-            TrafficEnvironment.detectContainerChange();
         },
         function (err) {
             console.log('Error: ' + err);

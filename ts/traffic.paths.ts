@@ -1,5 +1,4 @@
 import plugins = require("./traffic.plugins");
-import TrafficOptions = require("./traffic.options");
 
 // Directories
 export let certDir = "/LE_CERTS";
