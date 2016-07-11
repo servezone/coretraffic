@@ -6,7 +6,6 @@ import TrafficCerts = require("./traffic.certs");
 import TrafficDockersock = require("./traffic.dockersock");
 import TrafficEnvironment = require("./traffic.environment");
 import TrafficEvents = require("./traffic.events");
-import TrafficGit = require("./traffic.git");
 import TrafficOptions = require("./traffic.options");
 import TrafficNginx = require("./traffic.nginx");
 import TrafficSsh = require("./traffic.ssh");
@@ -19,7 +18,6 @@ plugins.beautylog.log("Modules loaded! Now running initial checks");
 TrafficEnvironment.checkDebug()
     .then(TrafficOptions.buildOptions)
     .then(TrafficSsh.setupSshFromEnv)
-    .then(TrafficGit.setupGit)
     .then(TrafficCerts.setupCerts)
     .then(TrafficEvents.startTicker);
 

@@ -20,19 +20,23 @@
   },
   "homepage": "https://gitlab.com/pushrocks/coretraffic#README",
   "dependencies": {
-    "beautylog": "*",
-    "cflare": "0.0.2",
+    "@types/lodash": "*",
+    "@types/request": "*",
+    "@types/through2": "*",
+    "beautylog": "^5.0.13",
+    "cflare": "0.0.9",
     "fs-extra": "^0.30.0",
     "gulp": "^3.9.1",
     "lodash": "^4.13.1",
-    "moment": "^2.13.0",
+    "moment": "^2.14.1",
     "q": "^1.4.1",
     "request": "^2.72.0",
     "rx": "^4.1.0",
     "shelljs": "^0.7.0",
-    "smartfile": "^3.0.10",
-    "smartstring": "2.0.6",
-    "through2": "^2.0.1"
+    "smartfile": "^4.0.10",
+    "smartstring": "2.0.10",
+    "through2": "^2.0.1",
+    "typings-global": "^1.0.6"
   },
   "devDependencies": {
     "npmts-g": "^5.2.6"
