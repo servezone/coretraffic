@@ -1,7 +1,7 @@
 {
   "name": "coretraffic",
   "version": "1.0.0",
-  "description": "handle traffic",
+  "description": "route traffic within your docker setup. TypeScript ready.",
   "main": "dist/index.js",
   "scripts": {
     "test": "(npmts)"
