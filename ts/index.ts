@@ -11,7 +11,8 @@ import TrafficNginx = require("./traffic.nginx");
  **************************************************************/
 let startCoretraffic = plugins.q.defer();
 startCoretraffic.promise
-    .then(TrafficDockersock.init);
+    .then(TrafficDockersock.init)
+    .then(TrafficEvents.init);
 
 // start coretraffic
 startCoretraffic.resolve();

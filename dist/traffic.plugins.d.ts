@@ -11,5 +11,6 @@ export import request = require("request");
 export import rxjs = require("rxjs/Rx");
 export declare let shelljs: any;
 export import smartfile = require("smartfile");
+export import smartnginx = require("smartnginx");
 export import smartstring = require("smartstring");
 export import through2 = require("through2");
