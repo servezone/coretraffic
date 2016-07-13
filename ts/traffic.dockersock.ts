@@ -7,3 +7,10 @@ export let init = (sockUrl:string) => {
     done.resolve();
     return done.promise;
 };
+
+export let handleChange = () => {
+    dockersock.listContainersDetailed()
+        .then((responseArg) => {
+            console.log(responseArg);
+        });
+}

@@ -1,12 +1,12 @@
 import * as plugins  from "./traffic.plugins";
-import {dockersock} from "./traffic.dockersock"; 
+import * as TrafficDockersock from "./traffic.dockersock"; 
 
 export let init = () => {
     let done = plugins.q.defer();
-    let dockerChangeObservable = dockersock.getChangeObservable();
+    let dockerChangeObservable = TrafficDockersock.dockersock.getChangeObservable();
     let changeSubscription = dockerChangeObservable.subscribe(
         function (x) {
-            console.log('TickerCycle#: ' + x);
+            TrafficDockersock.handleChange();
         },
         function (err) {
             console.log('Error: ' + err);
