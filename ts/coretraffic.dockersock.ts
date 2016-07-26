@@ -1,4 +1,4 @@
-import plugins = require("./traffic.plugins");
+import plugins = require("./coretraffic.plugins");
 
 export let dockersock:plugins.dockersock.Dockersock;
 export let init = (sockUrl:string) => {

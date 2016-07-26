@@ -1,4 +1,4 @@
-import * as plugins  from "./traffic.plugins";
+import * as plugins  from "./coretraffic.plugins";
 import * as TrafficDockersock from "./traffic.dockersock"; 
 
 export let init = () => {

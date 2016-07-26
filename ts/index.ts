@@ -1,18 +1,26 @@
 console.log("**** Starting coretraffic ****");
-import plugins = require("./traffic.plugins");
-import paths = require("./traffic.paths");
+import * as plugins from "./coretraffic.plugins";
+import * as paths from "./coretraffic.paths";
 
-import TrafficDockersock = require("./traffic.dockersock");
-import TrafficEvents = require("./traffic.events");
-import TrafficNginx = require("./traffic.nginx");
+import * as CoretrafficConfig from "./coretraffic.config";
+import * as CoretrafficDockersock from "./coretraffic.dockersock";
+import * as CoretrafficEnvironment from "./coretraffic.environment";
+import * as CoretrafficEvents from "./coretraffic.events";
+import * as CoretrafficNginx from "./coretraffic.nginx";
 
 /**************************************************************
  ************ Initial Start ********
  **************************************************************/
-let startCoretraffic = plugins.q.defer();
-startCoretraffic.promise
-    .then(TrafficDockersock.init)
-    .then(TrafficEvents.init);
+let startDeferred = plugins.q.defer();
+startDeferred.promise
+    .then(CoretrafficEnvironment.init)
+    .then(CoretrafficDockersock.init)
+    .then(CoretrafficEvents.init);
 
-// start coretraffic
-startCoretraffic.resolve();
+/**
+ * starts coretraffic with a given config;
+ */
+export let start = (optionsArg:CoretrafficConfig.ICoretrafficConfig) => {
+    CoretrafficConfig.setConfig(optionsArg);
+    startDeferred.resolve();
+}
