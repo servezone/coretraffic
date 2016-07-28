@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "route traffic within your docker setup. TypeScript ready.",
   "main": "dist/index.js",
+  "typings":"dist/index.d.ts",
   "scripts": {
     "test": "(npmts)"
   },
