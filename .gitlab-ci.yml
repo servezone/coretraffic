@@ -4,28 +4,15 @@ stages:
 - test
 - release
 - trigger
-
-testLEGACY:
-  stage: test
-  script:
-    - npmci test legacy
-  tags:
-    - docker
-  allow_failure: true
-
-testLTS:
-  stage: test
-  script:
-    - npmci test lts
-  tags:
-    - docker
     
-testSTABLE:
+test:
   stage: test
   script:
-    - npmci test stable
+    - npm test
   tags:
     - docker
+    - lossless
+    - priv
 
 release:
   image: hosttoday/ht-docker-node:npmts
