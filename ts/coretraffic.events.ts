@@ -1,12 +1,13 @@
-import * as plugins  from "./coretraffic.plugins";
-import * as TrafficDockersock from "./traffic.dockersock"; 
+import * as plugins from "./coretraffic.plugins";
+import * as corerafficDockersock from "./coretraffic.dockersock";
+import * as taskchains from "./coretraffic.taskchains";
 
 export let init = () => {
     let done = plugins.q.defer();
-    let dockerChangeObservable = TrafficDockersock.dockersock.getChangeObservable();
+    let dockerChangeObservable = corerafficDockersock.dockersock.getChangeObservable();
     let changeSubscription = dockerChangeObservable.subscribe(
         function (x) {
-            TrafficDockersock.handleChange();
+            taskchains.taskHandleChange.trigger();
         },
         function (err) {
             console.log('Error: ' + err);
@@ -15,6 +16,7 @@ export let init = () => {
             console.log('Completed');
         }
     );
+    plugins.beautylog.ok("Subscribed to change events!");
     done.resolve();
     return done.promise;
 };

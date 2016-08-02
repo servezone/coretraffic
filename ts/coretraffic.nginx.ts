@@ -1,6 +1,12 @@
 import plugins = require("./coretraffic.plugins");
 import paths = require("./coretraffic.paths");
-import {NginxConfig} from "smartnginx";
+
+// classes
+import {NginxConfig,NginxZone} from "smartnginx";
+import {Task} from "taskbuffer";
+
+// interfaces
+import {IContainerTrafficObject} from "./coretraffic.dockersock"
 
 let nginxConfig:NginxConfig;
 
@@ -14,4 +20,14 @@ export let init =  () => {
         cfKey:"",
         cfEmail:""
     });
-}
+};
+
+export let taskSetupNginx = new Task({
+    name:"setupNginx",
+    taskFunction: (containerTrafficData:IContainerTrafficObject) => {
+        let done = plugins.q.defer();
+        // nginxConfig.addZone();
+        done.resolve();
+        return done.promise;
+    }
+})

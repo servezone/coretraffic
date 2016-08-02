@@ -2,7 +2,7 @@ import * as plugins from "./coretraffic.plugins";
 
 let checkDockersock = function (): boolean {
     try {
-        plugins.smartfile.checks.fileExistsSync("/var/run/docker.sock");
+        plugins.smartfile.fs.fileExistsSync("/var/run/docker.sock");
         plugins.beautylog.log("great, docker.sock is available!");
         return true;
     }
@@ -14,9 +14,7 @@ let checkDockersock = function (): boolean {
 
 export let init = () => {
     let done = plugins.q.defer();
-    if (
-        checkDockersock()
-    ) {
+    if (checkDockersock()){
         plugins.beautylog.ok("Environment checks passed!");
         done.resolve();
     } else {

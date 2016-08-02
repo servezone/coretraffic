@@ -1,1 +1,10 @@
-{}
+{
+    "npmts":{
+
+    },
+    "npmdocker":{
+        "baseImage":"hosttoday/ht-docker-node:npmts",
+        "command":"npmts",
+        "dockerSock":true
+    }
+}
