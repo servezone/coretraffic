@@ -10,7 +10,7 @@ stages:
 test:
   stage: test
   script:
-    - npm test
+    - npmci test stable
   tags:
     - docker
     - lossless
