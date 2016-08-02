@@ -1,4 +1,4 @@
-image: hosttoday/ht-docker-node:npmts
+image: hosttoday/ht-docker-dbase:npmts
 
 stages:
 - test
@@ -28,6 +28,7 @@ testSTABLE:
     - docker
 
 release:
+  image: hosttoday/ht-docker-node:npmts
   stage: release
   environment: npmjs-com_registry
   script:
@@ -38,6 +39,7 @@ release:
     - docker
 
 trigger:
+  image: hosttoday/ht-docker-node:npmts
   stage: trigger
   script:
     - npmci trigger
