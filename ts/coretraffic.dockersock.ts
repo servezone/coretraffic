@@ -5,34 +5,28 @@ export let dockersock: plugins.dockersock.Dockersock;
 export let init = (sockUrl: string) => {
     let done = plugins.q.defer();
     dockersock = new plugins.dockersock.Dockersock(sockUrl); // when no sock Url is given dockersocj module will use default path
-    plugins.beautylog.info("Dockersock created!")
+    plugins.beautylog.ok("Dockersock created!")
     done.resolve();
     return done.promise;
 };
 
-
-export interface IContainerTrafficObject {
-    id:string,
-    domain:string,
-    ip:string
-}
-
 export let taskGetContainerTrafficData = new Task({
-    name: "handleChange",
+    name: "handle change",
     taskFunction: () => {
         let done = plugins.q.defer();
         dockersock.listContainersDetailed()
-            .then((responseArg: any) => {
-                let detailedContainerData:IContainerTrafficObject[] = responseArg.map(function (containerObject) {
+            .then((responseArg:any[]) => {
+                let detailedContainerData:plugins.smartnginx.IHostConfigData[] = responseArg.map(function (containerObject) {
                     return {
-                        id: containerObject.Id,
-                        domain: plugins.smartstring.docker.makeEnvObject(containerObject.Config.Env).VIRTUAL_HOST,
-                        ip: containerObject.NetworkSettings.Networks.bridge.IPAddress
+                        hostName: plugins.smartstring.docker.makeEnvObject(containerObject.Config.Env).HOST,
+                        destination: containerObject.NetworkSettings.Networks.bridge.IPAddress,
+                        type: plugins.smartnginx.hostTypes.reverseProxy
                     }
+                }).filter(item => {
+                    return typeof item.hostName !== "undefined";
                 });
-                console.log(detailedContainerData);
                 done.resolve(detailedContainerData);
-            });
+            }).catch(err => {console.log(err)});
         return done.promise;
     },
     buffered: true,

@@ -5,12 +5,12 @@ import {Taskchain} from "taskbuffer";
 
 // tasks
 import {taskGetContainerTrafficData} from "./coretraffic.dockersock";
-import {taskSetupNginx} from "./coretraffic.nginx"
+import {taskUpdateNginxConfig} from "./coretraffic.nginx"
 
 export let taskHandleChange = new Taskchain({
     taskArray:[
         taskGetContainerTrafficData,
-        taskSetupNginx
+        taskUpdateNginxConfig
     ],
     buffered: true,
     bufferMax: 1

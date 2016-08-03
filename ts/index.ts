@@ -17,6 +17,7 @@ let coreTrafficRunning = plugins.q.defer();
 startDeferred.promise
     .then(CoretrafficEnvironment.init)
     .then(CoretrafficDockersock.init)
+    .then(CoretrafficNginx.init)
     .then(CoretrafficEvents.init)
     .then(coreTrafficRunning.resolve);
 

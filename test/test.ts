@@ -10,15 +10,17 @@ import coretraffic = require("../dist/index");
 describe("coretraffic", function () {
     describe(".start()", function () {
         it("should start an coretraffic instance", function (done) {
-            this.timeout(30000);
+            this.timeout(240000);
             coretraffic.start({
                 cfKey: process.env.CF_KEY,
                 cfEmail: process.env.CF_EMAIL
             }).then(() => {
-                shelljs.exec(`docker run -e DOMAIN:test1.bleu.de --name testContainer`, { silent: true });
-                shelljs.exec(`docker stop testContainer`, { silent: true });
-                shelljs.exec(`docker rm testContainer`, { silent: true });
+                console.log("now starting a test container");
+                shelljs.exec(`docker run -e HOST=test1.bleu.de --name testContainer -d nginx`);
+                console.log("now starting a test handle change");
                 coretraffic.taskHandleChange.trigger().then(() => {
+                    shelljs.exec(`docker stop testContainer`, { silent: true });
+                    shelljs.exec(`docker rm testContainer`, { silent: true });
                     coretraffic.end();
                     done();
                 })
