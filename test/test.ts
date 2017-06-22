@@ -1,4 +1,3 @@
-import "typings-test";
 import * as beautylog from "beautylog";
 import "should";
 import * as shelljs from "shelljs";
@@ -7,9 +6,7 @@ let testQenv = new Qenv(process.cwd(), process.cwd() + "/.nogit");
 
 import coretraffic = require("../dist/index");
 
-describe("coretraffic", function () {
-    describe(".start()", function () {
-        it("should start an coretraffic instance", function (done) {
+        it(" .start()should start an coretraffic instance", function (done) {
             this.timeout(240000);
             coretraffic.start({
                 cfKey: process.env.CF_KEY,
@@ -26,5 +23,3 @@ describe("coretraffic", function () {
                 })
             });
         })
-    });
-})

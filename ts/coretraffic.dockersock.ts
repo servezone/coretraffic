@@ -2,7 +2,7 @@ import plugins = require("./coretraffic.plugins");
 import { Task } from "taskbuffer";
 
 export let dockersock: plugins.dockersock.Dockersock;
-export let init = (sockUrl: string) => {
+export let init = (sockUrl?: string) => {
     let done = plugins.q.defer();
     dockersock = new plugins.dockersock.Dockersock(sockUrl); // when no sock Url is given dockersocj module will use default path
     plugins.beautylog.ok("Dockersock created!")

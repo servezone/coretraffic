@@ -3,8 +3,14 @@
 
     },
     "npmdocker":{
-        "baseImage":"hosttoday/ht-docker-node:npmts",
-        "command":"npmts",
+        "baseImage":"hosttoday/ht-docker-node:npmci",
+        "command":"npmci test stable",
         "dockerSock":true
+    },
+    "npmci": {
+        "globalNpmTools": [
+            "npmts",
+            "npmdocker"
+        ]
     }
 }

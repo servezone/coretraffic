@@ -15,11 +15,12 @@ import * as CoretrafficNginx from "./coretraffic.nginx";
 let startDeferred = plugins.q.defer();
 let coreTrafficRunning = plugins.q.defer();
 startDeferred.promise
-    .then(CoretrafficEnvironment.init)
-    .then(CoretrafficDockersock.init)
-    .then(CoretrafficNginx.init)
-    .then(CoretrafficEvents.init)
-    .then(coreTrafficRunning.resolve);
+    .then(async () => {
+        await CoretrafficEnvironment.init()
+        await CoretrafficDockersock.init()
+        await CoretrafficNginx.init()
+        await CoretrafficEvents.init()
+    })
 
 /**
  * starts coretraffic with a given config;
@@ -27,7 +28,7 @@ startDeferred.promise
 export let start = (optionsArg:CoretrafficConfig.ICoretrafficConfig) => {
     let done = plugins.q.defer();
     CoretrafficConfig.setConfig(optionsArg);
-    startDeferred.resolve();
+    startDeferred.resolve()
     coreTrafficRunning.promise.then(() => {
         plugins.beautylog.info("start tasks complete!");
         done.resolve();
