@@ -1,4 +1,4 @@
-node_modules
-docs/
-coverage/
 .nogit/
+.yarn/
+node_modules
+coverage/
