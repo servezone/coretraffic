@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(npmdocker)"
+    "test": "(npmdocker)",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -40,9 +42,11 @@
     "smartstring": "2.0.24",
     "taskbuffer": "^1.0.17",
     "through2": "^2.0.3",
-    "typings-global": "^1.0.19"
+    "typings-global": "^1.0.19",
+    "snyk": "^1.36.2"
   },
   "devDependencies": {
     "qenv": "^1.1.7"
-  }
+  },
+  "snyk": true
 }
