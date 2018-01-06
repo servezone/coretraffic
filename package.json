@@ -27,7 +27,7 @@
     "beautylog": "^6.1.10",
     "dockersock": "^1.0.20",
     "fs-extra": "^3.0.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "npmts": "^7.1.6",
