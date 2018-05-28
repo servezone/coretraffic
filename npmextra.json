@@ -4,7 +4,7 @@
     },
     "npmdocker":{
         "baseImage":"hosttoday/ht-docker-node:npmci",
-        "command":"npmci test stable",
+        "command":"echo \"inside docker now\"",
         "dockerSock":true
     },
     "npmci": {

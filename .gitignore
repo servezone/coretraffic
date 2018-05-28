@@ -1,4 +1,6 @@
+# gitzone standard
 .nogit/
 .yarn/
-node_modules
+.npmci_cache/
+node_modules/
 coverage/
