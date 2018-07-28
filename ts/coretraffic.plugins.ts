@@ -1,17 +1,36 @@
-import 'typings-global';
-export import beautylog = require('beautylog');
-export import dockersock = require('dockersock');
-export let fs = require('fs-extra');
-export let gulp = require('gulp');
-export import lodash = require('lodash');
-export let moment = require('moment');
-export import path = require('path');
-export import q = require('q');
-export import request = require('request');
-export import rxjs = require('rxjs');
-export let shelljs = require('shelljs');
-export import smartfile = require('smartfile');
-export import smartnginx = require('smartnginx');
-export import smartstring = require('smartstring');
-export import taskbuffer = require('taskbuffer');
-export import through2 = require('through2');
+// export import dockersock = require('dockersock');
+
+// NODE INTERNALS
+import * as path from 'path';
+
+// @PUSHROCKS
+import * as smartlog from '@pushrocks/smartlog';
+import * as smartshell from '@pushrocks/smartshell';
+import * as smartfile from '@pushrocks/smartfile';
+import * as smartpromise from '@pushrocks/smartpromise';
+import * as smartstring from '@pushrocks/smartstring';
+import * as smartrequest from '@pushrocks/smartrequest';
+
+// TODO: UPDATE
+import * as smartnginx from 'smartnginx';
+
+// THIRD PARTY
+import * as moment from 'moment';
+import * as rxjs from 'rxjs';
+import * as taskbuffer from 'taskbuffer';
+import * as through2 from 'through2';
+
+export {
+  path,
+  smartlog,
+  smartshell,
+  smartfile,
+  smartpromise,
+  smartstring,
+  smartrequest,
+  smartnginx,
+  moment,
+  rxjs,
+  taskbuffer,
+  through2
+}

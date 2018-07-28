@@ -1,4 +1,5 @@
 import * as plugins from './coretraffic.plugins';
+import {} from './coretraffic.config';
 
 export interface ICoretrafficConfig {
   cfKey: string;
@@ -6,8 +7,7 @@ export interface ICoretrafficConfig {
   dockerDomainEnvName?: string;
 }
 
-export let config: ICoretrafficConfig;
-
-export let setConfig = (optionsArg: ICoretrafficConfig) => {
-  config = optionsArg;
-};
+export class Coretraffic {
+  config
+  constructot() {}
+}

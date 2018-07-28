@@ -1,11 +1,11 @@
-import * as plugins from './coretraffic.plugins.ts';
+import * as plugins from './coretraffic.plugins';
 
 // classes
 import { Taskchain } from 'taskbuffer';
 
 // tasks
-import { taskGetContainerTrafficData } from './coretraffic.dockersock';
-import { taskUpdateNginxConfig } from './coretraffic.nginx';
+import { taskGetContainerTrafficData } from './coretraffic.api.docker';
+import { taskUpdateNginxConfig } from './coretraffic.api.nginx';
 
 export let taskHandleChange = new Taskchain({
   taskArray: [taskGetContainerTrafficData, taskUpdateNginxConfig],

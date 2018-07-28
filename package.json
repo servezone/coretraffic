@@ -22,31 +22,24 @@
   },
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
-    "@types/lodash": "^4.14.66",
-    "@types/request": "^2.47.0",
+    "@gitzone/tsrun": "^1.1.9",
+    "@pushrocks/smartfile": "^6.0.3",
+    "@pushrocks/smartlog": "^2.0.1",
+    "@pushrocks/smartpromise": "^2.0.5",
+    "@pushrocks/smartrequest": "^1.1.12",
+    "@pushrocks/smartshell": "^1.0.21",
+    "@pushrocks/smartstring": "^3.0.0",
+    "@types/lodash": "^4.14.114",
+    "@types/request": "^2.47.1",
     "@types/through2": "^2.0.33",
-    "beautylog": "^6.1.10",
-    "dockersock": "^1.0.20",
-    "fs-extra": "^6.0.1",
-    "gulp": "^3.9.1",
-    "lodash": "^4.17.4",
-    "moment": "^2.18.1",
-    "npmts": "^8.0.27",
-    "q": "^1.5.0",
-    "request": "^2.81.0",
-    "rxjs": "^6.2.0",
-    "shelljs": "^0.8.2",
-    "smartfile": "^4.2.17",
+    "moment": "^2.22.2",
+    "rxjs": "^6.2.2",
     "smartnginx": "1.0.6",
-    "smartstring": "^2.0.28",
     "taskbuffer": "^1.0.17",
-    "through2": "^2.0.3",
-    "typings-global": "^1.0.19"
+    "through2": "^2.0.3"
   },
   "devDependencies": {
-    "qenv": "^1.1.7",
-    "ts-node": "^6.0.5",
-    "typescript": "^2.8.3"
+    "qenv": "^1.1.7"
   },
   "private": true
 }

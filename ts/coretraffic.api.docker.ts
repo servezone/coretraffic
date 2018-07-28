@@ -1,11 +1,10 @@
 import plugins = require('./coretraffic.plugins');
 import { Task } from 'taskbuffer';
 
-export let dockersock: plugins.dockersock.Dockersock;
+let dockerInstance: plugins.docker.Docker;
 export let init = (sockUrl?: string) => {
-  let done = plugins.q.defer();
-  dockersock = new plugins.dockersock.Dockersock(sockUrl); // when no sock Url is given dockersocj module will use default path
-  plugins.beautylog.ok('Dockersock created!');
+  let done = plugins.smartpromise.defer();
+  dockerInstance = new plugins.docker.Dockersock(sockUrl); // when no sock Url is given dockersocj module will use default path
   done.resolve();
   return done.promise;
 };
@@ -13,8 +12,8 @@ export let init = (sockUrl?: string) => {
 export let taskGetContainerTrafficData = new Task({
   name: 'handle change',
   taskFunction: () => {
-    let done = plugins.q.defer();
-    dockersock
+    let done = plugins.smartpromise.defer();
+    dockerInstance
       .listContainersDetailed()
       .then((responseArg: any[]) => {
         let detailedContainerData: plugins.smartnginx.IHostConfigData[] = responseArg

@@ -3,21 +3,21 @@ import * as plugins from './coretraffic.plugins';
 let checkDockersock = function(): boolean {
   try {
     plugins.smartfile.fs.fileExistsSync('/var/run/docker.sock');
-    plugins.beautylog.log('great, docker.sock is available!');
+    plugins.smartlog.defaultLogger.info('great, docker.sock is available!');
     return true;
   } catch (err) {
-    plugins.beautylog.warn('docker.sock is unavailable.');
+    plugins.smartlog.defaultLogger.warn('docker.sock is unavailable.');
     return false;
   }
 };
 
 export let init = () => {
-  let done = plugins.q.defer();
+  let done = plugins.smartpromise.defer();
   if (checkDockersock()) {
-    plugins.beautylog.ok('Environment checks passed!');
+    plugins.smartlog.defaultLogger.info('Environment checks passed!');
     done.resolve();
   } else {
-    plugins.beautylog.warn('Environment checks failed!');
+    plugins.smartlog.defaultLogger.warn('Environment checks failed!');
     done.reject('Environment checks failed!');
   }
   return done.promise;

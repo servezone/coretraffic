@@ -1,9 +1,9 @@
 import * as plugins from './coretraffic.plugins';
-import * as corerafficDockersock from './coretraffic.dockersock';
-import * as taskchains from './coretraffic.taskchains';
+import * as corerafficDockersock from './coretraffic.api.docker';
+import * as taskchains from './coretraffic.classes.traffichandler';
 
 export let init = () => {
-  let done = plugins.q.defer();
+  let done = plugins.smartpromise.defer();
   let dockerChangeObservable = corerafficDockersock.dockersock.getChangeObservable();
   let changeSubscription = dockerChangeObservable.subscribe(
     function(x) {
@@ -16,7 +16,7 @@ export let init = () => {
       console.log('Completed');
     }
   );
-  plugins.beautylog.ok('Subscribed to change events!');
+  plugins.smartlog.defaultLogger.info('Subscribed to change events!');
   done.resolve();
   return done.promise;
 };
