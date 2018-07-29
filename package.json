@@ -29,7 +29,6 @@
     "@pushrocks/smartrequest": "^1.1.12",
     "@pushrocks/smartshell": "^1.0.21",
     "@pushrocks/smartstring": "^3.0.0",
-    "@types/lodash": "^4.14.114",
     "@types/request": "^2.47.1",
     "@types/through2": "^2.0.33",
     "moment": "^2.22.2",
@@ -39,6 +38,7 @@
     "through2": "^2.0.3"
   },
   "devDependencies": {
+    "@pushrocks/tapbundle": "^3.0.1",
     "qenv": "^1.1.7"
   },
   "private": true
