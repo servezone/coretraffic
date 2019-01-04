@@ -1,9 +1,9 @@
 import plugins = require('./coretraffic.plugins');
-import { Task } from 'taskbuffer';
+import { Task } from '@pushrocks/taskbuffer';
 
 let dockerInstance: plugins.docker.Docker;
 export let init = (sockUrl?: string) => {
-  let done = plugins.smartpromise.defer();
+  const done = plugins.smartpromise.defer();
   dockerInstance = new plugins.docker.Dockersock(sockUrl); // when no sock Url is given dockersocj module will use default path
   done.resolve();
   return done.promise;

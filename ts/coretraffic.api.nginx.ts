@@ -1,19 +1,15 @@
 import plugins = require('./coretraffic.plugins');
 import paths = require('./coretraffic.paths');
-import * as ConfigModule from './coretraffic.config';
 
 // classes
-import { NginxConfig, NginxHost } from 'smartnginx';
-import { Task } from 'taskbuffer';
+import { IHostConfigData, NginxHost } from '@pushrocks/smartnginx';
+import { Task } from '@pushrocks/taskbuffer';
 
 let nginxConfig: NginxConfig;
 
 export let init = () => {
   let done = plugins.smartpromise.defer();
-  nginxConfig = new plugins.smartnginx.NginxConfig({
-    cfKey: ConfigModule.config.cfKey,
-    cfEmail: ConfigModule.config.cfEmail
-  });
+  nginxConfig = new plugins.smartnginx.NginxConfig();
   plugins.smartlog.info('NginxConfig instance created!');
   done.resolve();
   return done.promise;

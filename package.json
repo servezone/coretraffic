@@ -22,23 +22,22 @@
   },
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
-    "@gitzone/tsrun": "^1.1.9",
-    "@pushrocks/smartfile": "^6.0.3",
-    "@pushrocks/smartlog": "^2.0.1",
+    "@gitzone/tsrun": "^1.1.17",
+    "@pushrocks/smartfile": "^6.0.11",
+    "@pushrocks/smartlog": "^2.0.9",
+    "@pushrocks/smartnginx": "^2.0.7",
     "@pushrocks/smartpromise": "^2.0.5",
-    "@pushrocks/smartrequest": "^1.1.12",
-    "@pushrocks/smartshell": "^1.0.21",
-    "@pushrocks/smartstring": "^3.0.0",
-    "@types/request": "^2.47.1",
-    "@types/through2": "^2.0.33",
-    "moment": "^2.22.2",
-    "rxjs": "^6.2.2",
-    "smartnginx": "1.0.6",
-    "taskbuffer": "^1.0.17",
-    "through2": "^2.0.3"
+    "@pushrocks/smartrequest": "^1.1.14",
+    "@pushrocks/smartshell": "^2.0.13",
+    "@pushrocks/smartstring": "^3.0.5",
+    "@pushrocks/taskbuffer": "^2.0.5",
+    "@types/through2": "^2.0.34",
+    "moment": "^2.23.0",
+    "rxjs": "^6.3.3",
+    "through2": "^3.0.0"
   },
   "devDependencies": {
-    "@pushrocks/tapbundle": "^3.0.1",
+    "@pushrocks/tapbundle": "^3.0.7",
     "qenv": "^1.1.7"
   },
   "private": true
