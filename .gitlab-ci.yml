@@ -1,34 +1,48 @@
-image: hosttoday/ht-docker-dbase:npmts
-services:
-  - docker:dind
+# gitzone service
+image: hosttoday/ht-docker-node:npmci
+
+cache:
+  paths:
+  - .npmci-cache/
+  key: "$CI_BUILD_STAGE"
+
+before_script:
+  - npmci npm prepare
 
 stages:
 - test
 - release
 - trigger
+- pages
     
-test:
+testSTABLE:
   stage: test
   script:
-    - npmci test stable
+    - npmci node install stable
+    - npmci npm install
+    - npmci npm test
+  coverage: /\d+.?\d+?\%\s*coverage/
   tags:
     - docker
-    - lossless
-    - priv
 
 release:
-  image: hosttoday/ht-docker-node:npmts
+  image: hosttoday/ht-docker-dbase:npmci
+  services:
+  - docker:dind
   stage: release
-  environment: npmjs-com_registry
   script:
-    - npmci publish
+  - npmci node install stable
+  - npmci docker login
+  - npmci docker build
+  - npmci docker test
+  - npmci docker push registry.gitlab.com
   only:
-    - tags
+  - tags
   tags:
-    - docker
+  - docker
+  - priv
 
 trigger:
-  image: hosttoday/ht-docker-node:npmts
   stage: trigger
   script:
     - npmci trigger
