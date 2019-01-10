@@ -23,9 +23,12 @@
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
     "@gitzone/tsrun": "^1.1.17",
+    "@mojoio/docker": "^1.0.30",
+    "@pushrocks/qenv": "^3.0.2",
+    "@pushrocks/smartacme": "^2.0.13",
     "@pushrocks/smartfile": "^6.0.11",
     "@pushrocks/smartlog": "^2.0.9",
-    "@pushrocks/smartnginx": "^2.0.7",
+    "@pushrocks/smartnginx": "^2.0.12",
     "@pushrocks/smartpromise": "^2.0.5",
     "@pushrocks/smartrequest": "^1.1.14",
     "@pushrocks/smartshell": "^2.0.13",
@@ -38,7 +41,8 @@
   },
   "devDependencies": {
     "@pushrocks/tapbundle": "^3.0.7",
-    "qenv": "^1.1.7"
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0"
   },
   "private": true
 }
