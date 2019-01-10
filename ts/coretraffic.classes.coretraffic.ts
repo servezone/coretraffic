@@ -42,20 +42,17 @@ export class CoreTraffic {
     taskFunction: async () => {
       await this.setupRouting();
     },
-    name: 'setupRouting',
+    name: 'setupRouting'
   });
 
   /**
    * sets up routing
    */
-  private async setupRouting () {
+  private async setupRouting() {
     const containers = await this.dockerHost.getContainers();
     this.smartNginx.wipeHosts(); // make sure we have a clean slate
     for (const container of containers) {
-      if(
-        container.NetworkSettings.Networks.webgateway
-        && container.Labels['servezone.domain']
-      ) {
+      if (container.NetworkSettings.Networks.webgateway && container.Labels['servezone.domain']) {
         const destination = container.NetworkSettings.Networks.webgateway.IPAddress;
         const hostName = container.Labels['servezone.domain'];
         const certificate = await this.acmeRemoteClient.getCertificateForDomain(hostName);

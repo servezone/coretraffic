@@ -3,16 +3,12 @@
 // NODE INTERNALS
 import * as path from 'path';
 
-export {
-  path
-};
+export { path };
 
 // mojoio
 import * as docker from '@mojoio/docker';
 
-export {
-  docker
-};
+export { docker };
 
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';
@@ -44,8 +40,4 @@ import * as moment from 'moment';
 import * as rxjs from 'rxjs';
 import * as through2 from 'through2';
 
-export {
-  moment,
-  rxjs,
-  through2
-};
+export { moment, rxjs, through2 };
