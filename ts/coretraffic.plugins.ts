@@ -7,8 +7,16 @@ export {
   path
 };
 
+// mojoio
+import * as docker from '@mojoio/docker';
+
+export {
+  docker
+};
+
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';
+import * as smartacme from '@pushrocks/smartacme';
 import * as smartlog from '@pushrocks/smartlog';
 import * as smartshell from '@pushrocks/smartshell';
 import * as smartfile from '@pushrocks/smartfile';
@@ -20,6 +28,7 @@ import * as taskbuffer from '@pushrocks/taskbuffer';
 
 export {
   qenv,
+  smartacme,
   smartlog,
   smartshell,
   smartfile,
