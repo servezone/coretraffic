@@ -8,8 +8,6 @@
         "dockerSock":true
     },
     "npmci": {
-        "npmGlobalTools": [
-            "@gitzone/npmdocker"
-        ]
+        "npmGlobalTools": []
     }
 }
