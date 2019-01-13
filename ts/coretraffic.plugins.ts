@@ -14,6 +14,7 @@ export { docker };
 import * as qenv from '@pushrocks/qenv';
 import * as smartacme from '@pushrocks/smartacme';
 import * as smartlog from '@pushrocks/smartlog';
+import * as smartlogDestinationReceiver from '@pushrocks/smartlog-destination-receiver';
 import * as smartshell from '@pushrocks/smartshell';
 import * as smartfile from '@pushrocks/smartfile';
 import * as smartnginx from '@pushrocks/smartnginx';
@@ -26,6 +27,7 @@ export {
   qenv,
   smartacme,
   smartlog,
+  smartlogDestinationReceiver,
   smartshell,
   smartfile,
   smartpromise,
