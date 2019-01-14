@@ -11,3 +11,7 @@ const run = async () => {
   coretrafficInstance.handleDockerEvents();
   coretrafficInstance.setupRoutingTask.trigger();
 };
+
+if(process.env.CLI_CALL) {
+  run();
+}

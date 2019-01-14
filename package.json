@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "start": "node cli.ts.js",
     "test": "(tstest test/)",
     "build": "echo \"Not needed for now\""
   },
