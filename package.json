@@ -25,8 +25,8 @@
   "dependencies": {
     "@gitzone/tsrun": "^1.1.17",
     "@mojoio/docker": "^1.0.30",
-    "@pushrocks/qenv": "^3.0.2",
-    "@pushrocks/smartacme": "^2.0.13",
+    "@pushrocks/qenv": "^3.1.1",
+    "@pushrocks/smartacme": "^2.0.27",
     "@pushrocks/smartfile": "^6.0.11",
     "@pushrocks/smartlog": "^2.0.9",
     "@pushrocks/smartlog-destination-receiver": "^1.0.4",
@@ -34,7 +34,7 @@
     "@pushrocks/smartpromise": "^2.0.5",
     "@pushrocks/smartrequest": "^1.1.14",
     "@pushrocks/smartshell": "^2.0.13",
-    "@pushrocks/smartstring": "^3.0.5",
+    "@pushrocks/smartstring": "^3.0.8",
     "@pushrocks/taskbuffer": "^2.0.5",
     "@types/through2": "^2.0.34",
     "moment": "^2.23.0",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@gitzone/tstest": "^1.0.18",
     "@pushrocks/tapbundle": "^3.0.7",
-    "tslint": "^5.12.0",
+    "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0"
   },
   "private": true
