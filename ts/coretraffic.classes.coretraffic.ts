@@ -66,7 +66,7 @@ export class CoreTraffic {
         logger.log('ok', `found a container on the webgateway network.`);
         const destination = container.NetworkSettings.Networks[webgatewayName].IPAddress;
         const hostName = container.Labels['servezone.domain'];
-        logger.log('ok', 'trying to obtain a certificate for')
+        logger.log('ok', `trying to obtain a certificate for ${hostName}`);
         const certificate = await this.acmeRemoteClient.getCertificateForDomain(hostName);
         this.smartNginx.addHost({
           destination,
