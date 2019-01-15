@@ -56,7 +56,13 @@ export class CoreTraffic {
     logger.log('info', `Found ${containers.length} containers!`);
     this.smartNginx.wipeHosts(); // make sure we have a clean slate
     for (const container of containers) {
-      if (container.NetworkSettings.Networks.webgateway && container.Labels['servezone.domain']) {
+      let onWebGateway = false;
+      Object.keys(container.NetworkSettings.Networks).forEach(networkName => {
+        if(networkName.includes('webgateway')) {
+          onWebGateway = true;
+        }
+      });
+      if (onWebGateway && container.Labels['servezone.domain']) {
         logger.log('ok', `found a container on the webgateway network.`);
         const destination = container.NetworkSettings.Networks.webgateway.IPAddress;
         const hostName = container.Labels['servezone.domain'];
