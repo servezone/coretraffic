@@ -52,6 +52,7 @@ export class CoreTraffic {
    */
   private async setupRouting() {
     const containers = await this.dockerHost.getContainers();
+    console.log(containers);
     logger.log('info', `Found ${containers.length} containers!`);
     this.smartNginx.wipeHosts(); // make sure we have a clean slate
     for (const container of containers) {
