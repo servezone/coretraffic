@@ -40,9 +40,11 @@ export class CoreTraffic {
     buffered: true,
     bufferMax: 1,
     taskFunction: async () => {
+      logger.log('info', `routing setup task triggered`);
+      logger.log('ok', `debounce for 10 seconds`);
+      await plugins.smartdelay.delayFor(10000);
       await this.setupRouting();
-    },
-    name: 'setupRouting'
+    }
   });
 
   /**
@@ -50,11 +52,14 @@ export class CoreTraffic {
    */
   private async setupRouting() {
     const containers = await this.dockerHost.getContainers();
+    logger.log('info', `Found ${containers.length} containers!`);
     this.smartNginx.wipeHosts(); // make sure we have a clean slate
     for (const container of containers) {
       if (container.NetworkSettings.Networks.webgateway && container.Labels['servezone.domain']) {
+        logger.log('ok', `found a container on the webgateway network.`);
         const destination = container.NetworkSettings.Networks.webgateway.IPAddress;
         const hostName = container.Labels['servezone.domain'];
+        logger.log('ok', 'trying to obtain a certificate for')
         const certificate = await this.acmeRemoteClient.getCertificateForDomain(hostName);
         this.smartNginx.addHost({
           destination,
@@ -62,6 +67,8 @@ export class CoreTraffic {
           privateKey: certificate.privateKey,
           publicKey: certificate.publicKey
         });
+      } else {
+        logger.log('ok', `found a container either NOT on the webgateway network or without an assigned domain.`);
       }
     }
   }

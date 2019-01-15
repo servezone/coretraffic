@@ -13,6 +13,7 @@ export { docker };
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';
 import * as smartacme from '@pushrocks/smartacme';
+import * as smartdelay from '@pushrocks/smartdelay';
 import * as smartlog from '@pushrocks/smartlog';
 import * as smartlogDestinationReceiver from '@pushrocks/smartlog-destination-receiver';
 import * as smartshell from '@pushrocks/smartshell';
@@ -26,6 +27,7 @@ import * as taskbuffer from '@pushrocks/taskbuffer';
 export {
   qenv,
   smartacme,
+  smartdelay,
   smartlog,
   smartlogDestinationReceiver,
   smartshell,

@@ -8,8 +8,9 @@ import { CoreTraffic } from './coretraffic.classes.coretraffic';
 
 const run = async () => {
   const coretrafficInstance = new CoreTraffic();
-  coretrafficInstance.handleDockerEvents();
-  coretrafficInstance.setupRoutingTask.trigger();
+  await coretrafficInstance.handleDockerEvents();
+  await coretrafficInstance.setupRoutingTask.triggerBuffered();
+  console.log('coretraffic successfully started!');
 };
 
 if(process.env.CLI_CALL) {
