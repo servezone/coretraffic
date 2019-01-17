@@ -28,9 +28,9 @@ export class CoreTraffic {
   public async handleDockerEvents() {
     const eventObservable = await this.dockerHost.getEventObservable();
     const eventSubscription = eventObservable.subscribe(event => {
-      logger.log('info', `Docker event of type ${event.type}`);
+      logger.log('info', `Docker event of type ${event.Type}`);
       console.log(event);
-      if (event.type === 'container') {
+      if (event.Type === 'container') {
         logger.log('info', `event of type container: triggering reconfiguration of nginx now.`);
         this.setupRoutingTask.trigger();
       }
