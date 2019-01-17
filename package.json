@@ -26,7 +26,7 @@
     "@gitzone/tsrun": "^1.1.17",
     "@mojoio/docker": "^1.0.30",
     "@pushrocks/qenv": "^4.0.0",
-    "@pushrocks/smartacme": "^2.0.29",
+    "@pushrocks/smartacme": "^2.0.32",
     "@pushrocks/smartdelay": "^2.0.2",
     "@pushrocks/smartfile": "^6.0.11",
     "@pushrocks/smartlog": "^2.0.11",
