@@ -78,5 +78,6 @@ export class CoreTraffic {
         logger.log('ok', `found a container either NOT on the webgateway network or without an assigned domain.`);
       }
     }
+    await this.smartNginx.deploy();
   }
 }
