@@ -17,4 +17,6 @@ RUN apk add nginx
 WORKDIR /app
 COPY --from=node2 /app /app
 EXPOSE 80
+RUN addgroup -g 1000 -S www-data \
+ && adduser -u 1000 -D -S -G www-data www-data
 CMD ["npm", "start"]
