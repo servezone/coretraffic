@@ -42,7 +42,7 @@ export class CoreTraffic {
    */
   public setupRoutingTask = new plugins.taskbuffer.Task({
     buffered: true,
-    bufferMax: 1,
+    bufferMax: 2,
     taskFunction: async () => {
       logger.log('info', `routing setup task triggered`);
       logger.log('ok', `debounce for 10 seconds`);
@@ -58,7 +58,6 @@ export class CoreTraffic {
     const containers = await this.dockerHost.getContainers();
     console.log(containers);
     logger.log('info', `Found ${containers.length} containers!`);
-    this.smartNginx.wipeHosts(); // make sure we have a clean slate
     for (const container of containers) {
       let webgatewayName: string = null;
       Object.keys(container.NetworkSettings.Networks).forEach(networkName => {
@@ -72,7 +71,7 @@ export class CoreTraffic {
         const hostName = container.Labels['servezone.domain'];
         logger.log('ok', `trying to obtain a certificate for ${hostName}`);
         const certificate = await this.acmeRemoteClient.getCertificateForDomain(hostName);
-        this.smartNginx.addHost({
+        this.smartNginx.addHostCandidate({
           destination,
           hostName,
           privateKey: certificate.privateKey,
