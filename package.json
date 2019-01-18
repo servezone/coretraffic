@@ -24,7 +24,7 @@
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
     "@gitzone/tsrun": "^1.1.17",
-    "@mojoio/docker": "^1.0.30",
+    "@mojoio/docker": "^1.0.31",
     "@pushrocks/qenv": "^4.0.0",
     "@pushrocks/smartacme": "^2.0.36",
     "@pushrocks/smartdelay": "^2.0.2",
