@@ -29,6 +29,7 @@ export class CoreTraffic {
     const eventObservable = await this.dockerHost.getEventObservable();
     const eventSubscription = eventObservable.subscribe(event => {
       logger.log('info', `Docker event of type ${event.Type}`);
+      console.log(event);
       if (event.Type === 'network' || event.Type === 'container' || event.Type === 'service') {
         logger.log('info', `event of type network or container: triggering reconfiguration of nginx now.`);
         console.log(event);
