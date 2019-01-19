@@ -69,10 +69,19 @@ export class CoreTraffic {
         logger.log('ok', `found a container on the webgateway network.`);
         const destination = container.NetworkSettings.Networks[webgatewayName].IPAddress;
         const hostName = container.Labels['servezone.domain'];
+        const destinationPortString: string = container.Labels['servezone.container.port'];
+        const destinationPort: number = (() => {
+          if (destinationPortString) {
+            return parseInt(destinationPortString, 10);
+          } else {
+            return 80;
+          }
+        })();
         logger.log('ok', `trying to obtain a certificate for ${hostName}`);
         const certificate = await this.acmeRemoteClient.getCertificateForDomain(hostName);
         this.smartNginx.addHostCandidate({
           destination,
+          destinationPort,
           hostName,
           privateKey: certificate.privateKey,
           publicKey: certificate.publicKey
