@@ -31,7 +31,7 @@
     "@pushrocks/smartfile": "^6.0.11",
     "@pushrocks/smartlog": "^2.0.14",
     "@pushrocks/smartlog-destination-receiver": "^1.0.4",
-    "@pushrocks/smartnginx": "^2.0.32",
+    "@pushrocks/smartnginx": "^2.0.33",
     "@pushrocks/smartpromise": "^2.0.5",
     "@pushrocks/smartrequest": "^1.1.14",
     "@pushrocks/smartshell": "^2.0.13",
