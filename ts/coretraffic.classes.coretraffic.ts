@@ -30,8 +30,8 @@ export class CoreTraffic {
     const eventSubscription = eventObservable.subscribe(event => {
       logger.log('info', `Docker event of type ${event.Type}`);
       console.log(event);
-      if (event.Type === 'network' || event.Type === 'container' || event.Type === 'service' || event.Type === 'node') {
-        logger.log('info', `event of type network or container: triggering reconfiguration of nginx now.`);
+      if (event.Type === 'image' || event.Type === 'network' || event.Type === 'container' || event.Type === 'service' || event.Type === 'node') {
+        logger.log('info', `event of type ${event.Type}: triggering reconfiguration of nginx now.`);
         console.log(event);
         this.setupRoutingTask.trigger();
       }
