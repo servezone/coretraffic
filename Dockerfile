@@ -19,5 +19,7 @@ COPY --from=node2 /app /app
 EXPOSE 80
 RUN adduser -u 1001 -D -S -G www-data www-data && \
     mkdir /run/nginx && \
-    chown www-data:www-data -R /run/nginx
+    chown www-data:www-data -R /run/nginx && \
+    npm install -g @servezone/healthy
+HEALTHCHECK --interval=30s --timeout=30s --start-period=30s --retries=3 CMD [ "healthy" ]
 CMD ["npm", "start"]
