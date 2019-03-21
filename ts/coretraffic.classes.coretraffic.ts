@@ -92,4 +92,14 @@ export class CoreTraffic {
     }
     await this.smartNginx.deploy();
   }
+
+  /**
+   * starts coretraffic
+   */
+  start() {};
+
+  /**
+   * stops coretraffic
+   */
+  stop() {};
 }

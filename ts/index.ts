@@ -10,6 +10,8 @@ const run = async () => {
   const coretrafficInstance = new CoreTraffic();
   await coretrafficInstance.handleDockerEvents();
   await coretrafficInstance.setupRoutingTask.triggerBuffered();
+  
+
   console.log('coretraffic successfully started!');
 };
 
