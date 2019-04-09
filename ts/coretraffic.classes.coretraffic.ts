@@ -31,9 +31,10 @@ export class CoreTraffic {
       logger.log('info', `Docker event of type ${event.Type}`);
       console.log(event);
       if (event.Type === 'image' || event.Type === 'network' || event.Type === 'container' || event.Type === 'service' || event.Type === 'node') {
-        logger.log('info', `event of type ${event.Type}: triggering reconfiguration of nginx now.`);
         console.log(event);
-        this.setupRoutingTask.trigger();
+        console.log('for now not doing anything');
+        /* logger.log('info', `event of type ${event.Type}: triggering reconfiguration of nginx now.`);
+        this.setupRoutingTask.trigger(); */
       }
     });
   }
@@ -96,10 +97,15 @@ export class CoreTraffic {
   /**
    * starts coretraffic
    */
-  start() {};
+  public async start() {
+    await this.handleDockerEvents();
+    await this.setupRoutingTask.triggerBuffered();
+  }
 
   /**
    * stops coretraffic
    */
-  stop() {};
+  public async stop() {
+    this.smartNginx.nginxProcess.stop();
+  }
 }

@@ -27,7 +27,7 @@
     "@mojoio/docker": "^1.0.31",
     "@pushrocks/qenv": "^4.0.0",
     "@pushrocks/smartacme": "^2.1.0",
-    "@pushrocks/smartdelay": "^2.0.2",
+    "@pushrocks/smartdelay": "^2.0.3",
     "@pushrocks/smartfile": "^6.0.12",
     "@pushrocks/smartlog": "^2.0.19",
     "@pushrocks/smartlog-destination-receiver": "^1.0.4",
