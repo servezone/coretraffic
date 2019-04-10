@@ -31,8 +31,8 @@ export class CoreTraffic {
       logger.log('info', `Docker event of type ${event.Type}`);
       console.log(event);
       if (event.Type === 'image' || event.Type === 'network' || event.Type === 'container' || event.Type === 'service' || event.Type === 'node') {
-        console.log(event);
-        console.log('for now not doing anything');
+        // console.log(event);
+        console.log('got docker event, but for now not doing anything');
         /* logger.log('info', `event of type ${event.Type}: triggering reconfiguration of nginx now.`);
         this.setupRoutingTask.trigger(); */
       }
