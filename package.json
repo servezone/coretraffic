@@ -25,6 +25,7 @@
   "dependencies": {
     "@gitzone/tsrun": "^1.2.5",
     "@mojoio/docker": "^1.0.31",
+    "@pushrocks/projectinfo": "^4.0.2",
     "@pushrocks/qenv": "^4.0.0",
     "@pushrocks/smartacme": "^2.1.0",
     "@pushrocks/smartdelay": "^2.0.3",

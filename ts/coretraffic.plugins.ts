@@ -12,6 +12,7 @@ export { docker };
 
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';
+import * as projectinfo from '@pushrocks/projectinfo';
 import * as smartacme from '@pushrocks/smartacme';
 import * as smartdelay from '@pushrocks/smartdelay';
 import * as smartlog from '@pushrocks/smartlog';
@@ -26,6 +27,7 @@ import * as taskbuffer from '@pushrocks/taskbuffer';
 
 export {
   qenv,
+  projectinfo,
   smartacme,
   smartdelay,
   smartlog,
