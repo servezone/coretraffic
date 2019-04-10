@@ -19,7 +19,7 @@ export class CoreTraffic {
       secret: serviceQenv.getEnvVarOnDemand('SMARTACME_REMOTE_SECRET')
     });
     this.dockerHost = new DockerHost(); // defaults to locally mounted docker sock
-    this.smartNginx = new SmartNginx({ logger });
+    this.smartNginx = new SmartNginx({ logger, defaultProxyUrl: 'https://nullresolve.lossless.one/status/firewall' });
   }
 
   /**

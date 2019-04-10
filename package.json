@@ -23,16 +23,16 @@
   },
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
-    "@gitzone/tsrun": "^1.1.17",
+    "@gitzone/tsrun": "^1.2.5",
     "@mojoio/docker": "^1.0.31",
     "@pushrocks/qenv": "^4.0.0",
     "@pushrocks/smartacme": "^2.1.0",
     "@pushrocks/smartdelay": "^2.0.3",
-    "@pushrocks/smartfile": "^6.0.12",
+    "@pushrocks/smartfile": "^7.0.2",
     "@pushrocks/smartlog": "^2.0.19",
     "@pushrocks/smartlog-destination-receiver": "^1.0.4",
-    "@pushrocks/smartnginx": "^2.0.39",
-    "@pushrocks/smartpromise": "^2.0.5",
+    "@pushrocks/smartnginx": "^2.0.40",
+    "@pushrocks/smartpromise": "^3.0.2",
     "@pushrocks/smartrequest": "^1.1.14",
     "@pushrocks/smartshell": "^2.0.13",
     "@pushrocks/smartstring": "^3.0.8",
@@ -40,12 +40,12 @@
     "@types/through2": "^2.0.34",
     "moment": "^2.24.0",
     "rxjs": "^6.4.0",
-    "through2": "^3.0.0"
+    "through2": "^3.0.1"
   },
   "devDependencies": {
-    "@gitzone/tstest": "^1.0.18",
-    "@pushrocks/tapbundle": "^3.0.7",
-    "tslint": "^5.12.1",
+    "@gitzone/tstest": "^1.0.20",
+    "@pushrocks/tapbundle": "^3.0.9",
+    "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0"
   },
   "private": true
