@@ -19,7 +19,10 @@ export class CoreTraffic {
       secret: serviceQenv.getEnvVarOnDemand('SMARTACME_REMOTE_SECRET')
     });
     this.dockerHost = new DockerHost(); // defaults to locally mounted docker sock
-    this.smartNginx = new SmartNginx({ logger, defaultProxyUrl: 'https://nullresolve.lossless.one/status/firewall' });
+    this.smartNginx = new SmartNginx({
+      logger,
+      defaultProxyUrl: 'https://nullresolve.lossless.one/status/firewall'
+    });
   }
 
   /**
@@ -30,7 +33,13 @@ export class CoreTraffic {
     const eventSubscription = eventObservable.subscribe(event => {
       logger.log('info', `Docker event of type ${event.Type}`);
       // console.log(event);
-      if (event.Type === 'image' || event.Type === 'network' || event.Type === 'container' || event.Type === 'service' || event.Type === 'node') {
+      if (
+        event.Type === 'image' ||
+        event.Type === 'network' ||
+        event.Type === 'container' ||
+        event.Type === 'service' ||
+        event.Type === 'node'
+      ) {
         // console.log(event);
         console.log('got docker event, but for now not doing anything');
         /* logger.log('info', `event of type ${event.Type}: triggering reconfiguration of nginx now.`); */
@@ -62,7 +71,7 @@ export class CoreTraffic {
     for (const container of containers) {
       let webgatewayName: string = null;
       Object.keys(container.NetworkSettings.Networks).forEach(networkName => {
-        if(networkName.includes('webgateway')) {
+        if (networkName.includes('webgateway')) {
           webgatewayName = networkName;
         }
       });
@@ -88,7 +97,10 @@ export class CoreTraffic {
           publicKey: certificate.publicKey
         });
       } else {
-        logger.log('ok', `found a container either NOT on the webgateway network or without an assigned domain.`);
+        logger.log(
+          'ok',
+          `found a container either NOT on the webgateway network or without an assigned domain.`
+        );
       }
     }
     await this.smartNginx.deploy();

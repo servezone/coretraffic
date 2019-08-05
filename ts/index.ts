@@ -8,12 +8,12 @@ import { serviceQenv } from './coretraffic.config';
 import { CoreTraffic } from './coretraffic.classes.coretraffic';
 
 const run = async () => {
-  console.log(`starting coretraffic version ${projectinfo.npm.version}`); 
+  console.log(`starting coretraffic version ${projectinfo.npm.version}`);
   const coretrafficInstance = new CoreTraffic();
   coretrafficInstance.start();
   console.log('coretraffic successfully started!');
 };
 
-if(process.env.CLI_CALL) {
+if (process.env.CLI_CALL) {
   run();
 }

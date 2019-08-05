@@ -11,4 +11,3 @@ export const logger = new plugins.smartlog.Smartlog({
   }
 });
 logger.enableConsole();
-

@@ -1,13 +1,27 @@
 {
-    "npmts":{
-
+  "npmdocker": {
+    "baseImage": "hosttoday/ht-docker-node:npmci",
+    "command": "echo \"inside docker now\"",
+    "dockerSock": true
+  },
+  "npmci": {
+    "npmGlobalTools": [],
+    "npmRegistryUrl": "verdaccio.lossless.one",
+    "dockerRegistryRepoMap": {
+      "registry.gitlab.com": "servezone/private/coretraffic"
     },
-    "npmdocker":{
-        "baseImage":"hosttoday/ht-docker-node:npmci",
-        "command":"echo \"inside docker now\"",
-        "dockerSock":true
-    },
-    "npmci": {
-        "npmGlobalTools": []
+    "dockerBuildargEnvMap": {
+      "NPMCI_TOKEN_NPM2": "NPMCI_TOKEN_NPM2"
     }
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "servezone/private",
+      "gitrepo": "coretraffic",
+      "shortDescription": "route traffic within your docker setup. TypeScript ready.",
+      "npmPackagename": "@servezone_private/coretraffic",
+      "license": "UNLICENSED"
+    }
+  }
 }

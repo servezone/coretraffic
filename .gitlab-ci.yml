@@ -1,5 +1,5 @@
-# gitzone service
-image: hosttoday/ht-docker-node:npmci
+# gitzone ci_docker
+image: registry.gitlab.com/hosttoday/ht-docker-node:npmci
 
 cache:
   paths:
@@ -15,10 +15,10 @@ stages:
 - trigger
 - pages
     
-testSTABLE:
+testLTS:
   stage: test
   script:
-    - npmci node install stable
+    - npmci node install lts
     - npmci npm install
     - npmci npm test
   coverage: /\d+.?\d+?\%\s*coverage/
@@ -26,16 +26,16 @@ testSTABLE:
     - docker
 
 release:
-  image: hosttoday/ht-docker-dbase:npmci
+  image: registry.gitlab.com/hosttoday/ht-docker-dbase:npmci
   services:
-  - docker:dind
+  - docker:18-dind
   stage: release
   script:
-  - npmci node install stable
+  - npmci node install lts
   - npmci docker login
   - npmci docker build
   - npmci docker test
-  - npmci docker push registry.gitlab.com
+  - npmci docker push
   only:
   - tags
   tags:
