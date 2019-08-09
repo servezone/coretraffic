@@ -23,7 +23,6 @@ export class CoreTraffic {
     });
   }
 
-  
   /**
    * a task to run setup routing, runs buffered
    */

@@ -35,7 +35,7 @@ release:
   - npmci docker login
   - npmci docker build
   - npmci docker test
-  - npmci docker push
+  - npmci docker push registry.gitlab.com
   only:
   - tags
   tags:
