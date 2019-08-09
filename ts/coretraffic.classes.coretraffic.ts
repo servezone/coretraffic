@@ -1,8 +1,6 @@
 import * as plugins from './coretraffic.plugins';
 import { logger } from './coretraffic.logging';
 import { serviceQenv } from './coretraffic.config';
-import { SmartNginx } from '@pushrocks/smartnginx';
-import { DockerHost } from '@mojoio/docker';
 
 export interface ICoretrafficConfig {
   dockerDomainEnvName?: string;
@@ -11,43 +9,21 @@ export interface ICoretrafficConfig {
 export class CoreTraffic {
   private acmeRemoteClient: plugins.smartacme.CertRemoteClient;
   private dockerHost: plugins.docker.DockerHost;
-  private smartNginx: SmartNginx;
+  private smartNginx: plugins.smartnginx.SmartNginx;
 
   constructor() {
     this.acmeRemoteClient = new plugins.smartacme.CertRemoteClient({
       remoteUrl: serviceQenv.getEnvVarOnDemand('SMARTACME_REMOTE_URL'),
       secret: serviceQenv.getEnvVarOnDemand('SMARTACME_REMOTE_SECRET')
     });
-    this.dockerHost = new DockerHost(); // defaults to locally mounted docker sock
-    this.smartNginx = new SmartNginx({
+    this.dockerHost = new plugins.docker.DockerHost(); // defaults to locally mounted docker sock
+    this.smartNginx = new plugins.smartnginx.SmartNginx({
       logger,
       defaultProxyUrl: 'https://nullresolve.lossless.one/status/firewall'
     });
   }
 
-  /**
-   * will handle Docker Events
-   */
-  public async handleDockerEvents() {
-    const eventObservable = await this.dockerHost.getEventObservable();
-    const eventSubscription = eventObservable.subscribe(event => {
-      logger.log('info', `Docker event of type ${event.Type}`);
-      // console.log(event);
-      if (
-        event.Type === 'image' ||
-        event.Type === 'network' ||
-        event.Type === 'container' ||
-        event.Type === 'service' ||
-        event.Type === 'node'
-      ) {
-        // console.log(event);
-        console.log('got docker event, but for now not doing anything');
-        /* logger.log('info', `event of type ${event.Type}: triggering reconfiguration of nginx now.`); */
-        this.setupRoutingTask.trigger();
-      }
-    });
-  }
-
+  
   /**
    * a task to run setup routing, runs buffered
    */
@@ -110,7 +86,6 @@ export class CoreTraffic {
    * starts coretraffic
    */
   public async start() {
-    await this.handleDockerEvents();
     await this.setupRoutingTask.triggerBuffered();
   }
 
