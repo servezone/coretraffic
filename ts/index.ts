@@ -4,8 +4,6 @@ import * as paths from './coretraffic.paths';
 import { logger } from './coretraffic.logging';
 
 const projectinfo = new plugins.projectinfo.ProjectInfo(paths.packageDir);
-
-import { serviceQenv } from './coretraffic.config';
 import { CoreTraffic } from './coretraffic.classes.coretraffic';
 
 const run = async () => {
