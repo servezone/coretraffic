@@ -7,4 +7,8 @@ export class CoreflowConnector {
   constructor() {
     
   };
+
+  public async getHostCandidates(): Promise<any> {
+
+  }
 }
