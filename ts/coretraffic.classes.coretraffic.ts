@@ -28,25 +28,17 @@ export class CoreTraffic {
    * sets up routing
    */
   private async setupRouting() {
-    const hostCandidates = await this.coreflowConnector.getHostCandidates();
-    logger.log('info', `Found ${hostCandidates.length} host Candidates!`);
-    for (const hostCandidate of hostCandidates) {
-      this.smartproxy.addHostCandidate({
-        destinationIp: hostCandidate.destinationIp,
-        destinationPort: hostCandidate.destinationPort,
-        hostName: hostCandidate.hostName,
-        privateKey: hostCandidate.privateKey,
-        publicKey: hostCandidate.publicKey
-      });
-    }
+    const reverseConfigs = await this.coreflowConnector.getHostCandidates();
+    logger.log('info', `Found ${reverseConfigs.length} host reverse configs!`);
     logger.log('info', `trying to deploy host candidates now`);
-    await this.smartproxy.update();
+    await this.smartproxy.updateReversConfigs(reverseConfigs);
   }
 
   /**
    * starts coretraffic
    */
   public async start() {
+    await this.smartproxy.start();
     await this.setupRoutingTask.triggerBuffered();
   }
 
@@ -54,6 +46,6 @@ export class CoreTraffic {
    * stops coretraffic
    */
   public async stop() {
-    this.smartproxy
+    this.smartproxy.stop();
   }
 }
