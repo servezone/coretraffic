@@ -5,10 +5,12 @@ import * as path from 'path';
 
 export { path };
 
-// mojoio
-import * as docker from '@mojoio/docker';
+// apiglobal scope
+import * as typedrequest from '@apiglobal/typedrequest';
 
-export { docker };
+export {
+  typedrequest
+};
 
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';

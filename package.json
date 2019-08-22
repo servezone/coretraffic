@@ -23,6 +23,7 @@
   },
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
+    "@apiglobal/typedrequest": "^1.0.3",
     "@gitzone/tsrun": "^1.2.8",
     "@mojoio/docker": "^1.0.50",
     "@pushrocks/projectinfo": "^4.0.2",
