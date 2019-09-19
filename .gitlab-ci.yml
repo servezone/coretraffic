@@ -18,6 +18,7 @@ stages:
 testStable:
   stage: test
   script:
+    - npmci npm prepare
     - npmci node install stable
     - npmci npm install
     - npmci npm test
@@ -25,13 +26,25 @@ testStable:
   tags:
     - docker
 
+testBuild:
+  stage: test
+  script:
+  - npmci npm prepare
+  - npmci node install stable
+  - npmci npm install
+  - npmci command npm run build
+  coverage: /\d+.?\d+?\%\s*coverage/
+  tags:
+  - docker
+  - notpriv
+
 release:
   image: registry.gitlab.com/hosttoday/ht-docker-dbase:npmci
   services:
   - docker:stable-dind
   stage: release
   script:
-  - npmci node install lts
+  - npmci node install stable
   - npmci docker login
   - npmci docker build
   - npmci docker test
