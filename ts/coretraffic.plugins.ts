@@ -8,9 +8,7 @@ export { path };
 // apiglobal scope
 import * as typedrequest from '@apiglobal/typedrequest';
 
-export {
-  typedrequest
-};
+export { typedrequest };
 
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';

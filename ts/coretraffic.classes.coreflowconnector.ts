@@ -4,11 +4,7 @@ import * as plugins from './coretraffic.plugins';
  * Coreflow Connector
  */
 export class CoreflowConnector {
-  constructor() {
-    
-  };
+  constructor() {}
 
-  public async getHostCandidates(): Promise<any> {
-
-  }
+  public async getHostCandidates(): Promise<any> {}
 }
