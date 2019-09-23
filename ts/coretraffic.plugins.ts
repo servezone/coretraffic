@@ -8,9 +8,7 @@ export { path };
 // servezone scope
 import * as servezoneInterfaces from '@servezone/servezone-interfaces';
 
-export {
-  servezoneInterfaces
-};
+export { servezoneInterfaces };
 
 // apiglobal scope
 import * as typedrequest from '@apiglobal/typedrequest';

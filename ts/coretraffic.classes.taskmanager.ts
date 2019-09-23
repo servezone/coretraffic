@@ -18,7 +18,9 @@ export class CoretrafficTaskManager {
     this.setupRoutingTask = new plugins.taskbuffer.Task({
       buffered: true,
       bufferMax: 2,
-      taskFunction: async (reverseConfigs: plugins.servezoneInterfaces.traffic.IReverseProxyConfig[]) => {
+      taskFunction: async (
+        reverseConfigs: plugins.servezoneInterfaces.traffic.IReverseProxyConfig[]
+      ) => {
         logger.log('info', `routing setup task triggered`);
         logger.log('info', `Found ${reverseConfigs.length} host reverse configs!`);
         logger.log('info', `trying to deploy host candidates now`);
@@ -27,9 +29,7 @@ export class CoretrafficTaskManager {
     });
   }
 
-  public async start() {
-  };
+  public async start() {}
 
-  public async stop() {
-  };
+  public async stop() {}
 }

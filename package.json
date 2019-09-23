@@ -24,7 +24,7 @@
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
     "@apiglobal/typedrequest": "^1.0.24",
-    "@mojoio/docker": "^1.0.74",
+    "@mojoio/docker": "^1.0.83",
     "@pushrocks/projectinfo": "^4.0.2",
     "@pushrocks/qenv": "^4.0.5",
     "@pushrocks/smartdelay": "^2.0.3",
@@ -37,7 +37,7 @@
     "@pushrocks/smartshell": "^2.0.25",
     "@pushrocks/smartstring": "^3.0.10",
     "@pushrocks/smartuniverse": "^1.0.87",
-    "@pushrocks/taskbuffer": "^2.0.11",
+    "@pushrocks/taskbuffer": "^2.0.13",
     "@servezone/servezone-interfaces": "^2.0.48",
     "@types/through2": "^2.0.34",
     "moment": "^2.24.0",
