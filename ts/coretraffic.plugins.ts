@@ -5,6 +5,13 @@ import * as path from 'path';
 
 export { path };
 
+// servezone scope
+import * as servezoneInterfaces from '@servezone/servezone-interfaces';
+
+export {
+  servezoneInterfaces
+};
+
 // apiglobal scope
 import * as typedrequest from '@apiglobal/typedrequest';
 
@@ -20,8 +27,9 @@ import * as smartshell from '@pushrocks/smartshell';
 import * as smartfile from '@pushrocks/smartfile';
 import * as smartproxy from '@pushrocks/smartproxy';
 import * as smartpromise from '@pushrocks/smartpromise';
-import * as smartstring from '@pushrocks/smartstring';
 import * as smartrequest from '@pushrocks/smartrequest';
+import * as smartstring from '@pushrocks/smartstring';
+import * as smartuniverse from '@pushrocks/smartuniverse';
 import * as taskbuffer from '@pushrocks/taskbuffer';
 
 export {
@@ -34,8 +42,9 @@ export {
   smartproxy,
   smartshell,
   smartpromise,
-  smartstring,
   smartrequest,
+  smartstring,
+  smartuniverse,
   taskbuffer
 };
 
