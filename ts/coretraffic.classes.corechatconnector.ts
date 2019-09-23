@@ -22,7 +22,8 @@ export class CorechatConnector {
       method: 'updateRouting',
       channels: [this.corechatChannel],
       funcDef: async requestData => {
-        this.coretrafficRef.taskmanager.setupRoutingTask.trigger(requestData.reverseConfigs);
+        console.log(requestData);
+        await this.coretrafficRef.taskmanager.setupRoutingTask.trigger(requestData.reverseConfigs);
         return {
           status: 'ok',
           errorText: ''

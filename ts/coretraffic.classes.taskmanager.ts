@@ -21,6 +21,8 @@ export class CoretrafficTaskManager {
       taskFunction: async (
         reverseConfigs: plugins.servezoneInterfaces.traffic.IReverseProxyConfig[]
       ) => {
+        console.log('this is what got to the task:');
+        console.log(reverseConfigs);
         logger.log('info', `routing setup task triggered`);
         logger.log('info', `Found ${reverseConfigs.length} host reverse configs!`);
         logger.log('info', `trying to deploy host candidates now`);
