@@ -1,5 +1,3 @@
-// export import dockersock = require('dockersock');
-
 // NODE INTERNALS
 import * as path from 'path';
 
