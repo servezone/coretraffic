@@ -13,7 +13,8 @@ export class CorechatConnector {
   constructor(coretrafficRefArg: CoreTraffic) {
     this.coretrafficRef = coretrafficRefArg;
     this.universeClient = new plugins.smartuniverse.ClientUniverse({
-      serverAddress: 'http://corechat:3000'
+      serverAddress: 'http://corechat:3000',
+      autoReconnect: true,
     });
     this.corechatChannel = this.universeClient.addChannel('corechat', 'corechat');
     const reverseConfigReaction = new plugins.smartuniverse.ReactionResponse<
