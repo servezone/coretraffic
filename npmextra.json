@@ -8,7 +8,7 @@
     "npmGlobalTools": [],
     "npmRegistryUrl": "verdaccio.lossless.one",
     "dockerRegistryRepoMap": {
-      "registry.gitlab.com": "servezone/private/coretraffic"
+      "registry.gitlab.com": "losslessone/services/servezone/coretraffic"
     },
     "dockerBuildargEnvMap": {
       "NPMCI_TOKEN_NPM2": "NPMCI_TOKEN_NPM2"
