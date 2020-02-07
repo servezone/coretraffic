@@ -3,18 +3,18 @@ image: registry.gitlab.com/hosttoday/ht-docker-node:npmci
 
 cache:
   paths:
-  - .npmci-cache/
-  key: "$CI_BUILD_STAGE"
+    - .npmci-cache/
+  key: '$CI_BUILD_STAGE'
 
 before_script:
   - npmci npm prepare
 
 stages:
-- test
-- release
-- trigger
-- pages
-    
+  - test
+  - release
+  - trigger
+  - pages
+
 testStable:
   stage: test
   script:
@@ -24,36 +24,39 @@ testStable:
     - npmci npm test
   coverage: /\d+.?\d+?\%\s*coverage/
   tags:
+    - lossless
     - docker
 
 testBuild:
   stage: test
   script:
-  - npmci npm prepare
-  - npmci node install stable
-  - npmci npm install
-  - npmci command npm run build
+    - npmci npm prepare
+    - npmci node install stable
+    - npmci npm install
+    - npmci command npm run build
   coverage: /\d+.?\d+?\%\s*coverage/
   tags:
-  - docker
-  - notpriv
+    - lossless
+    - docker
+    - notpriv
 
 release:
   image: registry.gitlab.com/hosttoday/ht-docker-dbase:npmci
   services:
-  - docker:stable-dind
+    - docker:stable-dind
   stage: release
   script:
-  - npmci node install stable
-  - npmci docker login
-  - npmci docker build
-  - npmci docker test
-  - npmci docker push registry.gitlab.com
+    - npmci node install stable
+    - npmci docker login
+    - npmci docker build
+    - npmci docker test
+    - npmci docker push registry.gitlab.com
   only:
-  - tags
+    - tags
   tags:
-  - docker
-  - priv
+    - lossless
+    - docker
+    - priv
 
 trigger:
   stage: trigger
@@ -62,4 +65,5 @@ trigger:
   only:
     - tags
   tags:
+    - lossless
     - docker

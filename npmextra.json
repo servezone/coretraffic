@@ -15,6 +15,7 @@
     }
   },
   "gitzone": {
+    "projectType": "service",
     "module": {
       "githost": "gitlab.com",
       "gitscope": "servezone/private",
