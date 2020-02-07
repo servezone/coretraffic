@@ -26,7 +26,7 @@ export class CoretrafficTaskManager {
         logger.log('info', `routing setup task triggered`);
         logger.log('info', `Found ${reverseConfigs.length} host reverse configs!`);
         logger.log('info', `trying to deploy host candidates now`);
-        await this.coretrafficRef.smartproxy.updateReversConfigs(reverseConfigs);
+        await this.coretrafficRef.smartproxy.updateReverseConfigs(reverseConfigs);
       }
     });
   }

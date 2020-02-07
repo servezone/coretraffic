@@ -37,7 +37,7 @@ export class CorechatConnector {
    * starts the corechatConnector
    */
   public async start() {
-    await this.universeClient.checkConnection();
+    await this.universeClient.start();
   }
 
   public async getHostCandidates() {
