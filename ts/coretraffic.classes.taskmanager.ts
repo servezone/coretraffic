@@ -19,7 +19,7 @@ export class CoretrafficTaskManager {
       buffered: true,
       bufferMax: 2,
       taskFunction: async (
-        reverseConfigs: plugins.servezoneInterfaces.traffic.IReverseProxyConfig[]
+        reverseConfigs: plugins.lointCluster.traffic.IReverseProxyConfig[]
       ) => {
         console.log('this is what got to the task:');
         console.log(reverseConfigs);

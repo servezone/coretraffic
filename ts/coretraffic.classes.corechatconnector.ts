@@ -18,7 +18,7 @@ export class CorechatConnector {
     });
     this.corechatChannel = this.universeClient.addChannel('corechat', 'corechat');
     const reverseConfigReaction = new plugins.smartuniverse.ReactionResponse<
-      plugins.servezoneInterfaces.request.routing.IRequest_Coreflow_Coretraffic_RoutingUpdate
+      plugins.lointCluster.request.routing.IRequest_Coreflow_Coretraffic_RoutingUpdate
     >({
       method: 'updateRouting',
       channels: [this.corechatChannel],

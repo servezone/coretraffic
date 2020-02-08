@@ -4,9 +4,9 @@ import * as path from 'path';
 export { path };
 
 // servezone scope
-import * as servezoneInterfaces from '@servezone/servezone-interfaces';
+import * as lointCluster from '@losslessone_private/loint-cluster';
 
-export { servezoneInterfaces };
+export { lointCluster };
 
 // apiglobal scope
 import * as typedrequest from '@apiglobal/typedrequest';
