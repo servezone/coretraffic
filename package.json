@@ -6,6 +6,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "start": "node --max_old_space_size=200 cli.js",
+    "startTs": "node cli.ts.js",
     "test": "(tstest test/)",
     "build": "(tsbuild --web)"
   },
@@ -23,8 +24,8 @@
   },
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
-    "@apiglobal/typedrequest": "^1.0.24",
-    "@losslessone_private/loint-cluster": "^2.0.62",
+    "@apiglobal/typedrequest": "^1.0.28",
+    "@losslessone_private/loint-cluster": "^2.0.65",
     "@pushrocks/projectinfo": "^4.0.2",
     "@pushrocks/qenv": "^4.0.6",
     "@pushrocks/smartdelay": "^2.0.6",
@@ -32,7 +33,7 @@
     "@pushrocks/smartlog": "^2.0.21",
     "@pushrocks/smartlog-destination-receiver": "^1.0.4",
     "@pushrocks/smartpromise": "^3.0.6",
-    "@pushrocks/smartproxy": "^2.0.0",
+    "@pushrocks/smartproxy": "^2.0.2",
     "@pushrocks/smartrequest": "^1.1.47",
     "@pushrocks/smartshell": "^2.0.25",
     "@pushrocks/smartstring": "^3.0.18",

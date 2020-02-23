@@ -15,7 +15,7 @@ export class CoreTraffic {
   constructor() {
     this.corechatConnector = new CorechatConnector(this);
     this.taskmanager = new CoretrafficTaskManager(this);
-    this.smartproxy = new plugins.smartproxy.SmartProxy();
+    this.smartproxy = new plugins.smartproxy.SmartProxy({});
   }
 
   /**
