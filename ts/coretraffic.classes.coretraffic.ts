@@ -1,6 +1,6 @@
 import * as plugins from './coretraffic.plugins';
 import { logger } from './coretraffic.logging';
-import { CorechatConnector } from './coretraffic.classes.corechatconnector';
+import { CoreflowConnector } from './coretraffic.classes.coreflowconnector';
 import { CoretrafficTaskManager } from './coretraffic.classes.taskmanager';
 
 export interface ICoretrafficConfig {
@@ -8,12 +8,13 @@ export interface ICoretrafficConfig {
 }
 
 export class CoreTraffic {
-  public corechatConnector: CorechatConnector;
+  public typedrouter = new plugins.typedrequest.TypedRouter();
+  public corechatConnector: CoreflowConnector;
   public taskmanager: CoretrafficTaskManager;
   public smartproxy: plugins.smartproxy.SmartProxy;
 
   constructor() {
-    this.corechatConnector = new CorechatConnector(this);
+    this.corechatConnector = new CoreflowConnector(this);
     this.taskmanager = new CoretrafficTaskManager(this);
     this.smartproxy = new plugins.smartproxy.SmartProxy({});
   }

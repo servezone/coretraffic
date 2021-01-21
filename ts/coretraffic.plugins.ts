@@ -4,14 +4,15 @@ import * as path from 'path';
 export { path };
 
 // servezone scope
-import * as lointCluster from '@losslessone_private/loint-cluster';
+import * as lointCloudly from '@losslessone_private/loint-cloudly';
 
-export { lointCluster };
+export { lointCloudly };
 
 // apiglobal scope
 import * as typedrequest from '@apiglobal/typedrequest';
+import * as typedsocket from '@apiglobal/typedsocket';
 
-export { typedrequest };
+export { typedrequest, typedsocket };
 
 // @PUSHROCKS
 import * as qenv from '@pushrocks/qenv';
@@ -25,7 +26,6 @@ import * as smartproxy from '@pushrocks/smartproxy';
 import * as smartpromise from '@pushrocks/smartpromise';
 import * as smartrequest from '@pushrocks/smartrequest';
 import * as smartstring from '@pushrocks/smartstring';
-import * as smartuniverse from '@pushrocks/smartuniverse';
 import * as taskbuffer from '@pushrocks/taskbuffer';
 
 export {
@@ -40,8 +40,7 @@ export {
   smartpromise,
   smartrequest,
   smartstring,
-  smartuniverse,
-  taskbuffer
+  taskbuffer,
 };
 
 // THIRD PARTY

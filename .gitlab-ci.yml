@@ -10,10 +10,44 @@ before_script:
   - npmci npm prepare
 
 stages:
+  - security
   - test
   - release
-  - trigger
+  - metadata
   - pages
+
+# ====================
+# security stage
+# ====================
+
+auditProductionDependencies:
+  image: registry.gitlab.com/hosttoday/ht-docker-node:npmci
+  stage: security
+  script:
+    - npmci npm prepare
+    - npmci command npm install --production --ignore-scripts
+    - npmci command npm config set registry https://registry.npmjs.org
+    - npmci command npm audit --audit-level=high --only=prod --production
+  tags:
+    - lossless
+    - docker
+
+auditDevDependencies:
+  image: registry.gitlab.com/hosttoday/ht-docker-node:npmci
+  stage: security
+  script:
+    - npmci npm prepare
+    - npmci command npm install --ignore-scripts
+    - npmci command npm config set registry https://registry.npmjs.org
+    - npmci command npm audit --audit-level=high --only=dev
+  tags:
+    - lossless
+    - docker
+  allow_failure: true
+
+# ====================
+# test stage
+# ====================
 
 testStable:
   stage: test
@@ -40,6 +74,10 @@ testBuild:
     - docker
     - notpriv
 
+# ====================
+# release stage
+# ====================
+
 release:
   image: registry.gitlab.com/hosttoday/ht-docker-dbase:npmci
   services:
@@ -58,8 +96,12 @@ release:
     - docker
     - priv
 
+# ====================
+# metadata stage
+# ====================
+
 trigger:
-  stage: trigger
+  stage: metadata
   script:
     - npmci trigger
   only:

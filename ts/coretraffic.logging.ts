@@ -7,7 +7,7 @@ export const logger = new plugins.smartlog.Smartlog({
     containerName: 'coretraffic',
     environment: 'production',
     runtime: 'node',
-    zone: 'somezone'
-  }
+    zone: 'somezone',
+  },
 });
 logger.enableConsole();

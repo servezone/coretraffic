@@ -18,16 +18,14 @@ export class CoretrafficTaskManager {
     this.setupRoutingTask = new plugins.taskbuffer.Task({
       buffered: true,
       bufferMax: 2,
-      taskFunction: async (
-        reverseConfigs: plugins.lointCluster.traffic.IReverseProxyConfig[]
-      ) => {
+      taskFunction: async (reverseConfigs: plugins.lointCloudly.traffic.IReverseProxyConfig[]) => {
         console.log('this is what got to the task:');
         console.log(reverseConfigs);
         logger.log('info', `routing setup task triggered`);
         logger.log('info', `Found ${reverseConfigs.length} host reverse configs!`);
         logger.log('info', `trying to deploy host candidates now`);
         await this.coretrafficRef.smartproxy.updateReverseConfigs(reverseConfigs);
-      }
+      },
     });
   }
 
