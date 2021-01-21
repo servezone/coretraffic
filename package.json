@@ -1,6 +1,6 @@
 {
   "name": "coretraffic",
-  "version": "1.0.122",
+  "version": "1.0.123",
   "description": "route traffic within your docker setup. TypeScript ready.",
   "main": "dist_ts/index.js",
   "typings": "dist_ts/index.d.ts",
