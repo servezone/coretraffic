@@ -25,7 +25,7 @@
   "homepage": "https://gitlab.com/servezone/coretraffic#README",
   "dependencies": {
     "@apiglobal/typedrequest": "^1.0.56",
-    "@apiglobal/typedsocket": "^1.0.6",
+    "@apiglobal/typedsocket": "^1.0.7",
     "@losslessone_private/loint-cloudly": "^2.0.74",
     "@pushrocks/projectinfo": "^4.0.5",
     "@pushrocks/qenv": "^4.0.10",

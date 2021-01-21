@@ -32,7 +32,8 @@ export class CoreflowConnector {
   public async start() {
     this.typesocketClient = await plugins.typedsocket.TypedSocket.createClient(
       this.typedrouter,
-      'http://coreflow:3000'
+      'http://coreflow:3000',
+      'coretraffic'
     );
   }
 
