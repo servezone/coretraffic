@@ -5,7 +5,7 @@
   "main": "dist_ts/index.js",
   "typings": "dist_ts/index.d.ts",
   "scripts": {
-    "start": "node --max_old_space_size=200 cli.js",
+    "start": "node --max_old_space_size=320 cli.js",
     "startTs": "node cli.ts.js",
     "test": "(tstest test/)",
     "build": "(tsbuild --web)"
