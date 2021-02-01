@@ -4,10 +4,6 @@ import coretraffic = require('../ts/index');
 import { tap, expect } from '@pushrocks/tapbundle';
 import { Qenv } from '@pushrocks/qenv';
 
-if (process.env.CI) {
-  process.exit(0);
-}
-
 const testQenv = new Qenv('./', './.nogit');
 let testCoreTraffic: coretraffic.CoreTraffic;
 
